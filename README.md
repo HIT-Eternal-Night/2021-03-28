@@ -178,3 +178,33 @@ int main(int argc,char const*argv[])
 out: 
 	return 0;
 }
+
+7：马克思手稿中的数学问题
+#include<stdio.h>
+#define TOTAL 30
+
+int main(int argc,char const*argv[])
+{
+	int man,woman,kid;
+	int count = 0;
+	const int MONEY = 50;
+
+	printf("\tMEN\tWOMEN\tCHILDREN\n");
+	printf("-----------------------------------------\n");
+	for(man=0;man<=TOTAL;man++)
+	{
+		for(woman=0;woman<=TOTAL;woman++)
+		{
+			for(kid=0;kid<=TOTAL;kid++)
+			{			
+					if(((man*3 + woman*2 + kid*1) == MONEY) &&
+					(man + woman + kid == TOTAL))
+					{
+						count ++;
+						printf("%2d:\t%d\t%d\t%d\n",count,man,woman,kid);
+					}
+			}
+		}
+	}
+	return 0;
+}
