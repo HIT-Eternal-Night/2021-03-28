@@ -87,4 +87,64 @@ int MonkeyEatPeach(int days)
 	return x;
 }
 
-4：
+4：除不尽的自然数
+#include<stdio.h>
+
+int main(int argc,char const*argv[])
+{
+	int x;
+	int a;
+	
+	for (x=0 ; ; x++)
+	{
+		if (x%8 == 1 && x/8%8 == 1 && x/8/8%8 == 7)
+		{
+			a = x/8/8/8;
+		}
+		
+		if (x%17 == 4 && x/17%17 == 15 && x/17/17 == a*2)
+		{
+			printf("The required number is :%d\n",x);
+			break;
+		}
+	}
+	
+	return 0;
+}
+总结：单层循环的break要放在if内。本题不能分别记录a1,a2,
+然后if(a2 == 2*a1) (即用3个if)。这无法保证a1,a2对应同一个x值
+
+5：打印200~300之间所有素数
+#include<stdio.h>
+
+int fun(int m);
+
+int main(int argc,char const*argv[])
+{
+	int n;
+	for (n=200 ; n<=300 ; n++)
+	{
+		if (fun(n))
+		printf("%d\n",n);
+	}
+	return 0;
+}
+
+int fun(int m)
+{
+	if (m <= 1)
+	{
+		return 0;
+	}
+	else
+	{
+		int i;
+		for (i=2 ; i<m ; i++)
+		{
+			if (m % i == 0)
+			return 0;
+		}		
+		return 1;
+	}
+}
+
