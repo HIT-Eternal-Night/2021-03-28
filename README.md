@@ -57,4 +57,34 @@ int main(int argc,char const*argv[])
 	return 0;
 }
 
-3：
+3：猴子吃桃问题
+#include<stdio.h>
+
+int MonkeyEatPeach(int days);
+
+int main(int argc,char const*argv[])
+{
+	int    x;
+	int days;
+	
+	printf("Input days:\n");
+	scanf("%d",&days);
+	
+	x = MonkeyEatPeach(days);
+	printf("x=%d\n",x);
+	
+	return 0;
+}
+
+int MonkeyEatPeach(int days)
+{
+	int x = 1;
+	while (days > 1)
+	{
+		x = 2 * (x + 1);
+		days--;
+	}
+	return x;
+}
+
+4：
