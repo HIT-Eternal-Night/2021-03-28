@@ -148,3 +148,33 @@ int fun(int m)
 	}
 }
 
+6:减式还原
+#include<stdio.h>
+
+int main(int argc,char const*argv[])
+{
+	int P,E,A,R;
+	
+	for (P=1 ; P<10 ; P++)
+	{
+		for (E=0 ; E<10 ; E++)
+		{
+			for (A=0 ; A<10 ; A++)
+			{
+				for (R=0 ; R<10 ; R++)
+				{
+					if ((P*1000+E*100+A*10+R) - (A*100+R*10+A) == (P*100+E*10+A))
+					{
+						printf("    PEAR        %d%d%d%d\n",P,E,A,R);
+						printf("     ARA       - %d%d%d\n",  A,R,A);
+						printf("-----------   ----------------\n"  );
+						printf("     PEA         %d%d%d\n", P,E,A);
+						goto out;
+					}
+				}
+			}
+		}
+	}
+out: 
+	return 0;
+}
