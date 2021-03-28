@@ -32,3 +32,29 @@ int main(int argc,char const*argv[])
 	
 	return 0;
 }
+
+2：三色球问题
+#include<stdio.h>
+
+int main(int argc,char const*argv[])
+{
+	int i,j,k;
+	const int AMOUNT  =  8;
+	
+	for (i=0 ; i<=3 ; i++)
+	{
+		for (j=0 ; j<=3 ; j++)
+		{
+			for (k=0 ; k<=6 ; k++)
+			{
+				if (i+j+k == AMOUNT)
+				{
+					printf("i=%d, j=%d, k=%d\n",i,j,k);
+				}
+			}
+		}
+	} 
+	return 0;
+}
+
+3：
