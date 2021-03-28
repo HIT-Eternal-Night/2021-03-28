@@ -208,3 +208,101 @@ int main(int argc,char const*argv[])
 	}
 	return 0;
 }
+
+8：输出1-100之间能被3整除却不能被7整除的所有整数之和
+#include<stdio.h>
+
+int main(int argc,char const*argv[])
+{
+	int i;
+	int sum = 0;
+	
+	for (i=1 ; i<=100 ; i++)
+	{
+		if (i%3 == 0 && i%7 != 0)
+		{
+			sum += i;
+		}
+	}
+	
+	printf("sum=%d\n",sum);
+	return 0;
+}
+
+9：捕鱼分鱼
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int TakeFish(int n);
+ 
+int main(int argc,char const*argv[])
+{
+    int total;
+    total = TakeFish(5);
+    printf("The total number of fish is:%d\n",total);
+    return 0;
+}
+ 
+int TakeFish(int n)
+{
+	static int i=0;
+	
+	if(n==1)
+	{
+		do
+		{
+			i++;
+		} while (i % 5 != 0);
+		return (i+1);
+		
+	}
+	else
+	{
+		int a;
+		do
+		{
+			a = TakeFish(n-1);
+		} while (a % 4 != 0);
+		return (a / 4 * 5 + 1);
+	}
+}
+
+10:通分比较分数大小
+#include <stdio.h>
+ 
+int LCM(int a, int b);
+
+int main(int argc,char const*argv[])
+{
+	int a,b,c,d;
+	int lcm; 
+	
+	printf("Input two fractions\n");
+	scanf("%d/%d,%d/%d",&a,&b,&c,&d);
+	
+	lcm = LCM(b,d);
+	//printf("%d\n",lcm);
+	if (a*(lcm/b) == c*(lcm/d))
+	{
+		printf("%d/%d=%d/%d\n",a,b,c,d);
+	}
+	else if (a*(lcm/b) > c*(lcm/d))
+	{
+		printf("%d/%d>%d/%d\n",a,b,c,d);
+	}
+	else
+	{
+		printf("%d/%d<%d/%d\n",a,b,c,d);
+	}
+	return 0;
+}
+
+int LCM(int a, int b)
+{
+	int i;
+	for (i=a>b?a:b ; ; i++)
+	{
+		if (i%a == 0 && i%b == 0)
+		return i;
+	} 
+}
